@@ -10,4 +10,9 @@ public class BulletController : MonoBehaviour
     void Update () {
         this.transform.Translate(velocity * Time.deltaTime);
 	}
+
+    void OnCollisionEnter (Collision co){
+        velocity = new Vector3(0,0,0);
+        Destroy (this.gameObject); 
+    }
 }
