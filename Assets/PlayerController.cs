@@ -29,7 +29,9 @@ public class PlayerController : MonoBehaviour
         positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);         
         mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
         angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen)*-1-90;
+        // rotate player to face mouse
         transform.rotation =  Quaternion.Euler (new Vector3(0f,angle,0));
+        
         lDirection =new  Vector3( Mathf.Sin(Mathf.Deg2Rad * angle), 0, Mathf.Cos(Mathf.Deg2Rad * angle));
         
         if (Input.GetKey(KeyCode.A))
