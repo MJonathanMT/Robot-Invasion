@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Transform player;
+    public float moveSpeed = 1.0f;
     private Rigidbody rb;
+    private Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +36,7 @@ public class EnemyController : MonoBehaviour
 
         // Apply the force to rotate
         rb.AddTorque(deltavel, ForceMode.Impulse);
+
+        transform.position += transform.forward * 0.2f * Time.deltaTime;
     }
 }
