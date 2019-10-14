@@ -9514,11 +9514,8 @@ GameObject:
   m_Component:
   - component: {fileID: 796546113745195221}
   - component: {fileID: -2375120217645432984}
-<<<<<<< HEAD
-=======
   - component: {fileID: 3004932730500485640}
   - component: {fileID: 7353004496480997711}
->>>>>>> e5d4feea2f3fde5a977a30c67b4c983522593c89
   m_Layer: 0
   m_Name: NewBullet
   m_TagString: Untagged
@@ -9556,8 +9553,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 1}
-<<<<<<< HEAD
-=======
 --- !u!136 &3004932730500485640
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9588,7 +9583,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
->>>>>>> e5d4feea2f3fde5a977a30c67b4c983522593c89
 --- !u!1 &6737155985811738694
 GameObject:
   m_ObjectHideFlags: 0
@@ -9614,11 +9608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6737155985811738694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-=======
   m_LocalPosition: {x: 0, y: 0, z: 0.022}
->>>>>>> e5d4feea2f3fde5a977a30c67b4c983522593c89
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 796546113745195221}
@@ -9665,11 +9655,7 @@ TrailRenderer:
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
-<<<<<<< HEAD
-    widthMultiplier: 0.25
-=======
     widthMultiplier: 0.15
->>>>>>> e5d4feea2f3fde5a977a30c67b4c983522593c89
     widthCurve:
       serializedVersion: 2
       m_Curve:

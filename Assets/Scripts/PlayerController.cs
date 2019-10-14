@@ -72,9 +72,6 @@ public class PlayerController : MonoBehaviour
         currentVelocity = forwardVelocity + sideVelocity;
         rb.velocity = Vector3.zero;
         rb.position = rb.position + currentVelocity;
-
-        // stops player from moving upwards
-        rb.position = new Vector3(rb.position.x, 0, rb.position.z);
         if (Input.GetMouseButtonDown(0))
         {
             mouseScreenPos = Input.mousePosition;
