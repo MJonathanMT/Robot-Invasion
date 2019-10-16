@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     public Vector3 forwardVelocity;
     public Vector3 sideVelocity;
     public Vector3 currentVelocity;
+
+    public float reloadTime = 1.5f;
+    public float timer = 0;
+    bool timerReached = false;
+    public float nextTimeToFire = 0f;
+    public float fireRate = 15f;
     
     private Rigidbody rb;
 
@@ -73,30 +79,57 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.position = rb.position + currentVelocity;
         rb.position = new Vector3(rb.position.x, 0, rb.position.z);
-        if (Input.GetMouseButtonDown(0))
+
+        PlayerReload playerReload = GetComponent<PlayerReload>();
+        
+        // if(Input.GetKeyDown(KeyCode.R)){
+        //     timer += Time.deltaTime;
+        //     if(timer > reloadTime){
+        //         timer = 0;
+        //         playerReload.ReloadAction();
+        //     }
+        // }
+        if (Input.GetMouseButton(1))
         {
-            mouseScreenPos = Input.mousePosition;
-
-           
-            float distanceFromCameraToXZPlane = Camera.main.transform.position.y;
-
-            
-            screenPosWithZDistance = (Vector3)mouseScreenPos + (Vector3.forward * distanceFromCameraToXZPlane);
-            fireToWorldPos = Camera.main.ScreenToWorldPoint(screenPosWithZDistance);
-            fireToWorldPos.y = 0;
-
-           
-            BulletController p = Instantiate<BulletController>(bulletPrefab);       
-            
-            GameObject firePoint = this.transform.Find("FirePoint").gameObject;     
-            p.transform.position = firePoint.transform.position;            
-            p.velocity = (lDirection).normalized *10.0f ;
-
-            
-            GameObject pBullet = p.transform.Find("Projectile").gameObject;
-            pBullet.transform.eulerAngles = new Vector3(pBullet.transform.eulerAngles.x, angle, pBullet.transform.eulerAngles.z );
+            timer += Time.deltaTime;
+            if (timer >= reloadTime)
+            {
+                timer -= reloadTime;
+                // foregroundImage
+                playerReload.ReloadAction();
+            }
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            timer = 0.0f;
+        }
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
+        {  
+            timer = 0.0f;
+            nextTimeToFire = Time.time + 1f/fireRate;
+            if(playerReload.currentAmmo > 0){
+                mouseScreenPos = Input.mousePosition;           
+                float distanceFromCameraToXZPlane = Camera.main.transform.position.y;
+        
+                screenPosWithZDistance = (Vector3)mouseScreenPos + (Vector3.forward * distanceFromCameraToXZPlane);
+                fireToWorldPos = Camera.main.ScreenToWorldPoint(screenPosWithZDistance);
+                fireToWorldPos.y = 0;
 
+            
+                BulletController p = Instantiate<BulletController>(bulletPrefab);       
+                
+                GameObject firePoint = this.transform.Find("FirePoint").gameObject;     
+                p.transform.position = firePoint.transform.position;            
+                p.velocity = (lDirection).normalized *10.0f ;
+
+                
+                GameObject pBullet = p.transform.Find("Projectile").gameObject;
+                pBullet.transform.eulerAngles = new Vector3(pBullet.transform.eulerAngles.x, angle, pBullet.transform.eulerAngles.z );
+            
+                playerReload.ModifyAmmo(-1);
+            }
+            
+        }
     }
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
