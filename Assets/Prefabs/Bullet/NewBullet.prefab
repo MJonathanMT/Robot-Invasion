@@ -9513,9 +9513,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796546113745195221}
-  - component: {fileID: -2375120217645432984}
   - component: {fileID: 3004932730500485640}
   - component: {fileID: 7353004496480997711}
+  - component: {fileID: 324434572381749740}
   m_Layer: 9
   m_Name: NewBullet
   m_TagString: Untagged
@@ -9540,19 +9540,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2375120217645432984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796546113745195220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b8b4f2c910bd841b053b317099d539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 1}
 --- !u!136 &3004932730500485640
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9583,6 +9570,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &324434572381749740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796546113745195220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad5fb330bf2e4227bd9c859620c9583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 25}
 --- !u!1 &6737155985811738694
 GameObject:
   m_ObjectHideFlags: 0
