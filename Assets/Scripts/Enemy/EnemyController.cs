@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     private NavMeshAgent _nav;
+    public GameObject destroyExplosionPrefab;
     private Transform _player;
  
     void Start ()
@@ -16,5 +17,16 @@ public class EnemyController : MonoBehaviour
     void Update ()
     {
         _nav.SetDestination(_player.position);
+    }
+
+    // This should be hooked up to the health manager on this object
+    public void DestroyMe()
+    {
+        // Create explosion effect
+        GameObject explosion = Instantiate(this.destroyExplosionPrefab);
+        explosion.transform.position = this.transform.position;
+
+        // Destroy self
+        Destroy(this.gameObject);
     }
 }
