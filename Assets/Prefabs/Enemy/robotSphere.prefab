@@ -3918,9 +3918,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyExplosionPrefab: {fileID: 1687695751767166, guid: 77bc905ed7cdf4980b0e69e0bd777d29,
     type: 3}
-  enemyBulletPrefab: {fileID: 3395383505286470738, guid: 0a7ee28337e7f4d1b89322dfca815d17,
-    type: 3}
-  attackRange: 7
 --- !u!114 &3333442933614492076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4107,6 +4104,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8342123450004452195}
     m_Modifications:
+    - target: {fileID: 7719447774222113920, guid: b54e5716458214feaaa497498e3c729c,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Health Bar Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4130,7 +4132,7 @@ PrefabInstance:
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.41628098
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
@@ -4140,7 +4142,7 @@ PrefabInstance:
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.909236
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
@@ -4165,22 +4167,22 @@ PrefabInstance:
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.13
+      value: 0.19999993
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
@@ -4205,32 +4207,22 @@ PrefabInstance:
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.0100000035
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719447774222113921, guid: b54e5716458214feaaa497498e3c729c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719447774222113920, guid: b54e5716458214feaaa497498e3c729c,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy Health Bar Canvas
+      value: 0.0100000035
       objectReference: {fileID: 0}
     - target: {fileID: 7719447774222113925, guid: b54e5716458214feaaa497498e3c729c,
         type: 3}
@@ -4257,26 +4249,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719447774266946301, guid: b54e5716458214feaaa497498e3c729c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719447774266946301, guid: b54e5716458214feaaa497498e3c729c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719447774266946301, guid: b54e5716458214feaaa497498e3c729c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000000059604645
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719447774266946301, guid: b54e5716458214feaaa497498e3c729c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -2.1999998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b54e5716458214feaaa497498e3c729c, type: 3}
