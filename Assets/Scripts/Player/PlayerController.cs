@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource shootingAudioSrc;
+    public AudioSource reloadingAudioSrc;
 
     public float speed = 1.0f;
     public BulletController bulletPrefab;
-    private AudioSource shootingAudioSrc;
+
     private Vector2 mouseScreenPos;
     private Vector3 screenPosWithZDistance;
     private Vector3 fireToWorldPos;
@@ -38,9 +40,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // shooting audio source
-        shootingAudioSrc = GetComponent<AudioSource>();
-
         // Get rigidbody and set starting position
         rb = GetComponent<Rigidbody>();
         rb.position = new Vector3(25f,0,40f);
@@ -81,6 +80,8 @@ public class PlayerController : MonoBehaviour
         PlayerReload playerReload = GetComponent<PlayerReload>();
         
         if (Input.GetKey(KeyCode.R)){
+            reloadingAudioSrc.Play();
+
             tempAmmo = playerReload.currentAmmo;
             playerReload.currentAmmo = 0;
             playerReload.ReloadAction((int) tempAmmo);
