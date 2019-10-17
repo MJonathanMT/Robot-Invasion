@@ -21,13 +21,13 @@ public class EnemyHealth : MonoBehaviour
         OnHealthPercentChanged(currentHealthPercent);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if(collision with bullets decrease health)
-        if (Input.GetKey(KeyCode.Space)){
-            ModifyHealth(-10);
-        }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     // if(collision with bullets decrease health)
+    //     if (Input.GetKey(KeyCode.Space)){
+    //         ModifyHealth(-10);
+    //     }
         
-    }
+    // }
 }
