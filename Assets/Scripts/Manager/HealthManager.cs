@@ -11,7 +11,7 @@ public class HealthManager : MonoBehaviour {
     // for writing extensible code.
     public UnityEvent zeroHealthEvent;
 
-    private int currentHealth;
+    public int currentHealth;
 
 	// Use this for initialization
 	void Start () {

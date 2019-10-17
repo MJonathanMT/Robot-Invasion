@@ -9582,6 +9582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad5fb330bf2e4227bd9c859620c9583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagToDamage: Enemy
   velocity: {x: 0, y: 0, z: 25}
 --- !u!1 &6737155985811738694
 GameObject:

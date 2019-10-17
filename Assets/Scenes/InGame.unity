@@ -1296,6 +1296,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8543e844d8b2efc4ab27c331ea872b7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 868593114574376835, guid: 8543e844d8b2efc4ab27c331ea872b7e,
         type: 3}
       propertyPath: m_Layer
@@ -1496,6 +1501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f7c0b5903c45245937b686716352ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyExplosionPrefab: {fileID: 1687695751767166, guid: 77bc905ed7cdf4980b0e69e0bd777d29,
+    type: 3}
 --- !u!54 &259100718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1512,6 +1519,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &259100719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259100716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6118c34ecd9c243b68de7e060074005a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  zeroHealthEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 259100717}
+        m_MethodName: DestroyMe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  currentHealth: 0
 --- !u!4 &259100720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8543e844d8b2efc4ab27c331ea872b7e,
