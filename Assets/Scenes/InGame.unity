@@ -1098,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 8543e844d8b2efc4ab27c331ea872b7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8543e844d8b2efc4ab27c331ea872b7e,
         type: 3}
@@ -1225,6 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f7c0b5903c45245937b686716352ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBulletPrefab: {fileID: 11445730, guid: a2995395d33a6024d94a9e23a96b351c, type: 3}
 --- !u!54 &259100718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1264,7 +1265,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.045
-  m_Speed: 5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -7638,7 +7639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: df38d25b6fd39b44eacfb4a2b784547c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: df38d25b6fd39b44eacfb4a2b784547c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8653,7 +8654,7 @@ Transform:
   - {fileID: 1750713802}
   - {fileID: 1720847325}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581947658 stripped
 GameObject:
@@ -9446,7 +9447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 45.199, y: 179.99998, z: 0}
 --- !u!114 &1779301271
 MonoBehaviour:
@@ -11298,7 +11299,7 @@ Transform:
   m_Children:
   - {fileID: 277978690}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2140366025 stripped
 Transform:
