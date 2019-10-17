@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     bool timerReached = false;
     public float nextTimeToFire = 0f;
     public float fireRate = 15f;
+		private Animator anim;
+
+    private float tempAmmo;
     
     private Rigidbody rb;
 
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.position = new Vector3(25f,0,40f);
         transform.rotation =  Quaternion.Euler (new Vector3(0f,90f,0));
+			anim = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -51,6 +55,8 @@ public class PlayerController : MonoBehaviour
         transform.rotation =  Quaternion.Euler (new Vector3(0f,angle,0));
         
         lDirection =new  Vector3( Mathf.Sin(Mathf.Deg2Rad * angle), 0, Mathf.Cos(Mathf.Deg2Rad * angle));
+
+
         
         // if (Input.GetKey(KeyCode.A))
         // {
@@ -80,34 +86,25 @@ public class PlayerController : MonoBehaviour
         rb.position = rb.position + currentVelocity;
         rb.position = new Vector3(rb.position.x, 0, rb.position.z);
 
+         if (Input.anyKey){
+            anim.SetInteger ("AnimationPar", 1);
+         }else {
+				anim.SetInteger ("AnimationPar", 0);
+			}
+
+
         PlayerReload playerReload = GetComponent<PlayerReload>();
         
-        // if(Input.GetKeyDown(KeyCode.R)){
-        //     timer += Time.deltaTime;
-        //     if(timer > reloadTime){
-        //         timer = 0;
-        //         playerReload.ReloadAction();
-        //     }
-        // }
-        if (Input.GetMouseButton(1))
-        {
-            timer += Time.deltaTime;
-            if (timer >= reloadTime)
-            {
-                timer -= reloadTime;
-                // foregroundImage
-                playerReload.ReloadAction();
-            }
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            timer = 0.0f;
+        if (Input.GetKey(KeyCode.R)){
+            tempAmmo = playerReload.currentAmmo;
+            playerReload.currentAmmo = 0;
+            playerReload.ReloadAction((int) tempAmmo);
         }
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {  
             timer = 0.0f;
             nextTimeToFire = Time.time + 1f/fireRate;
-            if(playerReload.currentAmmo > 0){
+            if(playerReload.currentAmmo > 0){    
                 mouseScreenPos = Input.mousePosition;           
                 float distanceFromCameraToXZPlane = Camera.main.transform.position.y;
         
@@ -122,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 p.transform.position = firePoint.transform.position;            
                 p.velocity = (lDirection).normalized *10.0f ;
 
-                
+                // Uncomment when merge together
                 GameObject pBullet = p.transform.Find("Projectile").gameObject;
                 pBullet.transform.eulerAngles = new Vector3(pBullet.transform.eulerAngles.x, angle, pBullet.transform.eulerAngles.z );
             

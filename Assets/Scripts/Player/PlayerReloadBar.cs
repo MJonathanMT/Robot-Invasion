@@ -9,6 +9,7 @@ public class PlayerReloadBar : MonoBehaviour
 {
     public Image foregroundImage;
 
+    // reload speed
     private float updateSpeedSeconds = 100f;
 
     private void Awake(){
@@ -21,24 +22,20 @@ public class PlayerReloadBar : MonoBehaviour
     }
 
     private void HandleReload(float percent){
-        StartCoroutine(ChangeToPercent(percent));
+        StartCoroutine(ChangeFromPercent(percent));
     }
      // Interpolate damage dealt so heal decreases gradually
-    private IEnumerator ChangeToPercent(float percent){
+    private IEnumerator ChangeFromPercent(float percent){
         
         PlayerReload playerReload = GetComponentInParent<PlayerReload>();        
-        float preAmmoPercent = 0;
+        float preAmmoPercent = percent;
         float elapsed = 0f;
-         Debug.Log("what is going on");
-        while(elapsed <updateSpeedSeconds){
-            // playerReload.reloading = true;
+        while(foregroundImage.fillAmount < 1){
             elapsed += Time.deltaTime;
-            foregroundImage.fillAmount = Mathf.Lerp(preAmmoPercent, percent, elapsed/updateSpeedSeconds); 
-            // playerReload.reloading = false;
-        }
+            foregroundImage.fillAmount = Mathf.Lerp(preAmmoPercent, 100, elapsed/updateSpeedSeconds); 
             yield return null;   
-
-        // foregroundImage.fillAmount = percent;
+        }
+        playerReload.currentAmmo = playerReload.maxAmmo;
     }
     private void LateUpdate(){
         transform.LookAt(Camera.main.transform);
