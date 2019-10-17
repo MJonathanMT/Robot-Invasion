@@ -7,12 +7,15 @@ public class EnemyController : MonoBehaviour
     // public GameObject destroyExplosionPrefab;
     private Transform _player;
     public GameObject destroyExplosionPrefab;
+    // Audio Source 
+    private AudioSource explosionAudioSrc;
  
     void Start ()
 
     {
         _nav = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        explosionAudioSrc = GetComponent<AudioSource>();
     }
      
     void Update ()
@@ -22,7 +25,10 @@ public class EnemyController : MonoBehaviour
 
     // // This should be hooked up to the health manager on this object
     public void DestroyMe()
-    {
+    {   
+        // Create explosion sound
+        explosionAudioSrc.Play();
+
         // Create explosion effect
         GameObject explosion = Instantiate(this.destroyExplosionPrefab);
         explosion.transform.position = this.transform.position;
