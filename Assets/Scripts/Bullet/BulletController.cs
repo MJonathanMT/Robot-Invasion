@@ -18,7 +18,6 @@ public class BulletController : MonoBehaviour
             // Damage object with relevant tag
             HealthManager healthManager = col.gameObject.GetComponent<HealthManager>();
             healthManager.ApplyDamage(100);
-            Debug.Log("hit enemy");
         }
         velocity = new Vector3(0,0,0);
         Destroy (this.gameObject); 
