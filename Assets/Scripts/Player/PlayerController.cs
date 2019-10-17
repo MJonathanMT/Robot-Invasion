@@ -7,27 +7,28 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 1.0f;
     public BulletController bulletPrefab;
-    public Vector2 mouseScreenPos;
-    public Vector3 screenPosWithZDistance;
-    public Vector3 fireToWorldPos;
-     public Vector2 positionOnScreen ;
-     public Vector2 mouseOnScreen ;
-    public float angle;
-    public Vector3 lDirection;
-    public Vector3 rightArmPosition = new Vector3(0.01999995f,0,0);
-    public Quaternion bulletAngle;
+    private AudioSource shootingAudioSrc;
+    private Vector2 mouseScreenPos;
+    private Vector3 screenPosWithZDistance;
+    private Vector3 fireToWorldPos;
+    private Vector2 positionOnScreen ;
+    private Vector2 mouseOnScreen ;
+    private float angle;
+    private Vector3 lDirection;
+    private Vector3 rightArmPosition = new Vector3(0.01999995f,0,0);
+    private Quaternion bulletAngle;
     
-    public float forwardDirection;
-    public float sideDirection;
-    public Vector3 forwardVelocity;
-    public Vector3 sideVelocity;
-    public Vector3 currentVelocity;
+    private float forwardDirection;
+    private float sideDirection;
+    private Vector3 forwardVelocity;
+    private Vector3 sideVelocity;
+    private Vector3 currentVelocity;
 
-    public float reloadTime = 1.5f;
-    public float timer = 0;
+    private float reloadTime = 1.5f;
+    private float timer = 0;
     bool timerReached = false;
-    public float nextTimeToFire = 0f;
-    public float fireRate = 15f;
+    private float nextTimeToFire = 0f;
+    private float fireRate = 15f;
 		private Animator anim;
 
     private float tempAmmo;
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // shooting audio source
+        shootingAudioSrc = GetComponent<AudioSource>();
 
         // Get rigidbody and set starting position
         rb = GetComponent<Rigidbody>();
@@ -56,24 +59,6 @@ public class PlayerController : MonoBehaviour
         
         lDirection =new  Vector3( Mathf.Sin(Mathf.Deg2Rad * angle), 0, Mathf.Cos(Mathf.Deg2Rad * angle));
 
-
-        
-        // if (Input.GetKey(KeyCode.A))
-        // {
-        //     this.transform.position += (Vector3.back * speed * Time.deltaTime);
-        // }
-        // if (Input.GetKey(KeyCode.D))
-        // {
-        //     this.transform.position += (Vector3.forward * speed * Time.deltaTime);
-        // }
-        // if (Input.GetKey(KeyCode.W))
-        // {
-        //     this.transform.position += (Vector3.left * speed * Time.deltaTime);
-        // }
-        // if (Input.GetKey(KeyCode.S))
-        // {
-        //     this.transform.position += (Vector3.right * speed * Time.deltaTime);
-        // }
          // Getting Keyboard Inputs
         forwardDirection = Input.GetAxis("Vertical");
         sideDirection = Input.GetAxis("Horizontal");
@@ -105,13 +90,15 @@ public class PlayerController : MonoBehaviour
             timer = 0.0f;
             nextTimeToFire = Time.time + 1f/fireRate;
             if(playerReload.currentAmmo > 0){    
+                // play shooting sound
+                shootingAudioSrc.Play();
+
                 mouseScreenPos = Input.mousePosition;           
                 float distanceFromCameraToXZPlane = Camera.main.transform.position.y;
         
                 screenPosWithZDistance = (Vector3)mouseScreenPos + (Vector3.forward * distanceFromCameraToXZPlane);
                 fireToWorldPos = Camera.main.ScreenToWorldPoint(screenPosWithZDistance);
                 fireToWorldPos.y = 0;
-
             
                 BulletController p = Instantiate<BulletController>(bulletPrefab);       
                 
