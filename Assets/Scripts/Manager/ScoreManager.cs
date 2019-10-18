@@ -9,4 +9,7 @@ public class ScoreManager : MonoBehaviour {
     {
         this.score = 0;
     }
+    public void killScore(){
+        this.score += 100;
+    }
 }

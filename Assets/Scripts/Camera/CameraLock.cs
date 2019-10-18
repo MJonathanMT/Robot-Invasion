@@ -18,8 +18,8 @@ public class CameraLock : MonoBehaviour
         this.transform.position = pos + new Vector3(8f,8f, 0);
 
         pos = this.transform.position;
-        pos.x = Mathf.Clamp(pos.x, 23f, 43f); 
-        pos.z = Mathf.Clamp(pos.z, 11f, 68f);   
+        pos.x = Mathf.Clamp(pos.x, 5f, 44f); 
+        pos.z = Mathf.Clamp(pos.z,8f, 72f);   
         this.transform.position = pos;
     }
 

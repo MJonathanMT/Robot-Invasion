@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     public string tagToDamage;
     public Vector3 velocity = new Vector3(0,0,25);
+    public int bulletDamage = 50;
 
     // Update is called once per frame
     void Update () {
@@ -16,8 +17,9 @@ public class BulletController : MonoBehaviour
         if (col.gameObject.tag == tagToDamage)
         {
             // Damage object with relevant tag
-            HealthManager healthManager = col.gameObject.GetComponent<HealthManager>();
-            healthManager.ApplyDamage(100);
+             // Damage object with relevant tag
+            EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.ModifyHealth(bulletDamage);
         }
         velocity = new Vector3(0,0,0);
         Destroy (this.gameObject); 

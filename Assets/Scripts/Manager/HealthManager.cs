@@ -4,7 +4,7 @@ using System.Collections;
 
 public class HealthManager : MonoBehaviour {
 
-    public int startingHealth = 100;
+    public int startingHealth = 1000;
 
     // Use Unity's event system to decouple logic relating
     // to "dying" from managing health. This is good practice
@@ -32,6 +32,8 @@ public class HealthManager : MonoBehaviour {
         if (currentHealth <= 0)
         {
             this.zeroHealthEvent.Invoke();
+            ScoreManager scoreManager = GameObject.Find ("Managers").transform.Find("ScoreManager").GetComponent<ScoreManager> ();
+            scoreManager.killScore();
         }
     }
 

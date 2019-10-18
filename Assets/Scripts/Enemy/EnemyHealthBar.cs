@@ -13,12 +13,12 @@ public class EnemyHealthBar : MonoBehaviour
         GetComponentInParent<EnemyHealth>().OnHealthPercentChanged += HandleHealthChanged;
     }
 
-    private void HandleHealthChanged(float percent){
-        StartCoroutine(ChangeToPercent(percent));
+    private void HandleHealthChanged(float percent, int bulletDamage){
+        StartCoroutine(ChangeToPercent(percent, bulletDamage));
     }
 
     // Interpolate damage dealt so heal decreases gradually
-    private IEnumerator ChangeToPercent(float percent){
+    private IEnumerator ChangeToPercent(float percent, int bulletDamage){
         float preChangePercent = foregroundImage.fillAmount;
         float elapsed = 0f;
         while(elapsed <updateSpeedSeconds){
@@ -27,6 +27,11 @@ public class EnemyHealthBar : MonoBehaviour
             yield return null;
         }
         foregroundImage.fillAmount = percent;
+        HealthManager healthManager = GetComponentInParent<HealthManager>();            
+        healthManager.ApplyDamage(bulletDamage);
+        if (percent == 0){
+            StopCoroutine( ChangeToPercent(percent, bulletDamage) );
+        }
     }
 
     private void LateUpdate(){

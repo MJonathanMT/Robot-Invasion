@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private float nextTimeToFire = 0f;
     private float fireRate = 15f;
 		private Animator anim;
+        private Vector3 pos;
 
     private float tempAmmo;
     
@@ -40,6 +41,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
         // Get rigidbody and set starting position
         rb = GetComponent<Rigidbody>();
         rb.position = new Vector3(25f,0,40f);
@@ -69,6 +73,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.position = rb.position + currentVelocity;
         rb.position = new Vector3(rb.position.x, 0, rb.position.z);
+        
+        pos = rb.position;
+        pos.x = Mathf.Clamp(pos.x, 1f, 39f); 
+        pos.z = Mathf.Clamp(pos.z,1f, 79f);   
+        rb.position = pos;
 
          if (Input.anyKey){
             anim.SetInteger ("AnimationPar", 1);
