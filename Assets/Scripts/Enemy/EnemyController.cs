@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     // Audio Source 
     private AudioSource explosionAudioSrc;
 
-    public BulletController enemyBulletPrefab;
+    public EnemyBulletController enemyBulletPrefab;
     private float nextTimeToFire = 1f;
     private float timer;
     private float fireRate = 5f;
@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
     // shooting bullets
     public void shootBullet()
     {
-        BulletController p = Instantiate<BulletController>(enemyBulletPrefab);
+        EnemyBulletController p = Instantiate<EnemyBulletController>(enemyBulletPrefab);
         p.transform.position = this.transform.position + new Vector3( 1f,1f,1f);
         p.velocity = (_player.transform.position - this.transform.position).normalized * 10.0f;
     }

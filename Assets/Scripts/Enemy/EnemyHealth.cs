@@ -12,12 +12,14 @@ public class EnemyHealth : MonoBehaviour
     public event Action<float,int> OnHealthPercentChanged;
     public float currentHealthPercent;
 
-    private void OnEnable(){
+    private void OnEnable() {
         currentHealth = maxHealth;
     }
-    public void ModifyHealth(int amount){
+
+    public void ModifyHealth(int amount) {
         currentHealth -= amount;
         currentHealthPercent = (float)currentHealth/(float)maxHealth;
         OnHealthPercentChanged(currentHealthPercent, amount);
     }
+
 }

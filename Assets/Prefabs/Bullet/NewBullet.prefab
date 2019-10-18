@@ -9584,6 +9584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToDamage: Enemy
   velocity: {x: 0, y: 0, z: 25}
+  bulletDamage: 50
 --- !u!1 &6737155985811738694
 GameObject:
   m_ObjectHideFlags: 0

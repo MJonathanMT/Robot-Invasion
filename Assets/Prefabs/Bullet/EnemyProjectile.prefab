@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 13583110}
   - component: {fileID: 2370800}
   - component: {fileID: 5413382}
-  - component: {fileID: 3395383505286470738}
+  - component: {fileID: -1589485842442077404}
   m_Layer: 11
   m_Name: EnemyProjectile
   m_TagString: Untagged
@@ -109,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3395383505286470738
+--- !u!114 &-1589485842442077404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,8 +118,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 161280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad5fb330bf2e4227bd9c859620c9583, type: 3}
+  m_Script: {fileID: 11500000, guid: 5607c73453a0d6f4387b7fec3fcb1d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToDamage: 
-  velocity: {x: 0, y: 0, z: 15}
+  tagToDamage: Player
+  velocity: {x: 0, y: 0, z: 25}
+  bulletDamage: 1

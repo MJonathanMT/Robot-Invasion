@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal2: {fileID: 1020450917}
-  player: {fileID: 0}
+  player: {fileID: 1888209471}
 --- !u!1001 &99332358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5142,7 +5142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal2: {fileID: 95395479}
-  player: {fileID: 0}
+  player: {fileID: 1888209471}
 --- !u!4 &1041363375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281780448642680, guid: 0f9577b4dda6cc546abea4737be5a392,
@@ -7713,6 +7713,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7719447774222113925, guid: dbb73b9a007a248a193bef6a71de9679,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1779301269}
     - target: {fileID: 7719447774266946290, guid: dbb73b9a007a248a193bef6a71de9679,
         type: 3}
       propertyPath: m_Sprite
@@ -7734,11 +7739,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7719447774222113925, guid: dbb73b9a007a248a193bef6a71de9679,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1779301269}
     - target: {fileID: 7719447774266946300, guid: dbb73b9a007a248a193bef6a71de9679,
         type: 3}
       propertyPath: m_Layer
@@ -8779,7 +8779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1744394665
 Transform:
   m_ObjectHideFlags: 0
@@ -10374,6 +10374,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 3498368599947838848, guid: b8e59e272e1ca48a1a2e83cb09094509,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1779301269}
     - target: {fileID: 3498368600294747217, guid: b8e59e272e1ca48a1a2e83cb09094509,
         type: 3}
       propertyPath: m_Sprite
@@ -10395,11 +10400,27 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3498368599947838848, guid: b8e59e272e1ca48a1a2e83cb09094509,
+    - target: {fileID: 3498368600294747217, guid: b8e59e272e1ca48a1a2e83cb09094509,
         type: 3}
-      propertyPath: m_Camera
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1779301269}
+      objectReference: {fileID: 21300000, guid: 83da5ec8d08a541aa9c5c7513973e0a4,
+        type: 3}
+    - target: {fileID: 3498368600294747217, guid: b8e59e272e1ca48a1a2e83cb09094509,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498368600294747217, guid: b8e59e272e1ca48a1a2e83cb09094509,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498368600294747217, guid: b8e59e272e1ca48a1a2e83cb09094509,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3498368598657118279, guid: b8e59e272e1ca48a1a2e83cb09094509,
         type: 3}
       propertyPath: m_Layer

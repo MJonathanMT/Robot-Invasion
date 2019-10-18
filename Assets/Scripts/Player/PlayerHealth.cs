@@ -9,25 +9,30 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     public int maxHealth = 100;
     public int currentHealth;
-    public event Action<float> OnHealthPercentChanged;
+    public event Action<float, int> OnHealthPercentChanged;
     public float currentHealthPercent;
 
     private void OnEnable(){
         currentHealth = maxHealth;
     }
     public void ModifyHealth(int amount){
-        currentHealth += amount;
+        currentHealth -= amount;
         currentHealthPercent = (float)currentHealth/(float)maxHealth;
-        OnHealthPercentChanged(currentHealthPercent);
+        OnHealthPercentChanged(currentHealthPercent, amount);
     }
 
     // Update is called once per frame
     void Update()
     {
         // if(collision with bullets decrease health)
-        if (Input.GetKey(KeyCode.Space)){
-            ModifyHealth(-10);
-        }
+      
         
+    }
+
+     void OnCollisionEnter(Collision c) {
+
+        if (c.collider.name == "EnemyProjectile") {
+            ModifyHealth(5);
+        }
     }
 }

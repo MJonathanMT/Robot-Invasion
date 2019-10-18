@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         private Vector3 pos;
 
     private float tempAmmo;
+    public GameObject destroyExplosionPrefab;
     
     private Rigidbody rb;
 
@@ -127,5 +128,17 @@ public class PlayerController : MonoBehaviour
     }
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
+    public void DestroyMe()
+    {   
+        // Create explosion sound
+        // explosionAudioSrc.Play();
+
+        // Create explosion effect
+        GameObject explosion = Instantiate(this.destroyExplosionPrefab);
+        explosion.transform.position = this.transform.position;
+
+        // Destroy self
+        Destroy(this.gameObject);
     }
 }

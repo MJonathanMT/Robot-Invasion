@@ -3918,7 +3918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyExplosionPrefab: {fileID: 1687695751767166, guid: 77bc905ed7cdf4980b0e69e0bd777d29,
     type: 3}
-  enemyBulletPrefab: {fileID: 3395383505286470738, guid: 0a7ee28337e7f4d1b89322dfca815d17,
+  enemyBulletPrefab: {fileID: -1589485842442077404, guid: 0a7ee28337e7f4d1b89322dfca815d17,
     type: 3}
   attackRange: 7
 --- !u!114 &3333442933614492076
@@ -4002,7 +4002,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!82 &5998653511970819054
 AudioSource:
@@ -4107,11 +4107,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8342123450004452195}
     m_Modifications:
-    - target: {fileID: 1112214358631695562, guid: c0c1911d9599b40ed83e2c4e80105e1e,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy Health Bar Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 1112214358631695563, guid: c0c1911d9599b40ed83e2c4e80105e1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4216,6 +4211,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112214358631695562, guid: c0c1911d9599b40ed83e2c4e80105e1e,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Health Bar Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c1911d9599b40ed83e2c4e80105e1e, type: 3}
