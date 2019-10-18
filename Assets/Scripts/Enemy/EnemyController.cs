@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         if ((Vector3.Distance(_player.transform.position, this.transform.position) < attackRange) && (Time.time >= nextTimeToFire)) {
             timer = 0.0f;
             nextTimeToFire = Time.time + 1f / fireRate;
-            shootBullet();
+           // shootBullet();
         }
     }
 

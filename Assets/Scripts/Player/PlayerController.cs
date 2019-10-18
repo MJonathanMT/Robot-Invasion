@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 1.0f;
     public BulletController bulletPrefab;
-
     private Vector2 mouseScreenPos;
     private Vector3 screenPosWithZDistance;
     private Vector3 fireToWorldPos;
@@ -140,5 +139,15 @@ public class PlayerController : MonoBehaviour
 
         // Destroy self
         Destroy(this.gameObject);
+    }
+
+    void OnCollisionEnter(Collision c) {
+
+            Debug.Log("diedie");
+        if (c.collider.tag == "Enemy") {
+            Debug.Log("diedie");
+            PlayerHealth playerHealth = this.gameObject.GetComponent<PlayerHealth>();
+            playerHealth.ModifyHealth(10);
+        }
     }
 }

@@ -20,19 +20,4 @@ public class PlayerHealth : MonoBehaviour
         currentHealthPercent = (float)currentHealth/(float)maxHealth;
         OnHealthPercentChanged(currentHealthPercent, amount);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // if(collision with bullets decrease health)
-      
-        
-    }
-
-     void OnCollisionEnter(Collision c) {
-
-        if (c.collider.name == "EnemyProjectile") {
-            ModifyHealth(5);
-        }
-    }
 }
