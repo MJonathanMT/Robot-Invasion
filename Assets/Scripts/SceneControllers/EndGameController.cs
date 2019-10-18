@@ -6,6 +6,7 @@ public class EndGameController : MonoBehaviour {
     
     public void OpenMainMenu()
     {
+        
         SceneManager.LoadScene("MainMenu");
     }
 
