@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InGameController : MonoBehaviour {
     
     public Text scoreText;
+    public bool multiplier = false;
 
     // public SwarmManager swarmManager;
     public ScoreManager scoreManager;
@@ -30,7 +31,14 @@ public class InGameController : MonoBehaviour {
     void Update ()
     {
         // Update score text field
-        this.scoreText.text = "Score: " + this.scoreManager.score;
+        if(multiplier){
+            this.scoreText.text = "Score: " + this.scoreManager.score + "\nMultipler Active: 2x";
+            Debug.Log("acitvate");
+        }
+        else{
+            this.scoreText.text = "Score: " + this.scoreManager.score;
+            Debug.Log("normal boooo");
+        }
     }
 
     // // Called when the game should be ended

@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public event Action<float, int> OnHealthPercentChanged;
     public float currentHealthPercent;
 
-    private void OnEnable(){
+    public void OnEnable(){
         currentHealth = maxHealth;
     }
     public void ModifyHealth(int amount){
