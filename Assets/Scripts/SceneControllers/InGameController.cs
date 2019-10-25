@@ -32,12 +32,10 @@ public class InGameController : MonoBehaviour {
     {
         // Update score text field
         if(multiplier){
-            this.scoreText.text = "Score: " + this.scoreManager.score + "\nMultipler Active: 2x";
-            Debug.Log("acitvate");
+            this.scoreText.text = "Score: " + this.scoreManager.score + "\nMultipler Active: 2x";;
         }
         else{
             this.scoreText.text = "Score: " + this.scoreManager.score;
-            Debug.Log("normal boooo");
         }
     }
 

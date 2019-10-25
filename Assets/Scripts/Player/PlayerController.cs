@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(randomNum);
         Vector3 position;
         if (randomNum <= 0.1){
-            Damage all enemies power up
+            // Damage all enemies power up
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach(GameObject enemy in enemies){
                 HealthManager healthManager = enemy.GetComponent<HealthManager>();            
