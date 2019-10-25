@@ -31,8 +31,8 @@ public class EnemyController : MonoBehaviour
         // shooting player
         if ((Vector3.Distance(_player.transform.position, this.transform.position) < attackRange) && (Time.time >= nextTimeToFire)) {
             timer = 0.0f;
-            nextTimeToFire = Time.time + 1f / fireRate;
-           // shootBullet();
+            nextTimeToFire = Time.time + 3f / fireRate;
+            shootBullet();
         }
     }
 
@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
     public void shootBullet()
     {
         EnemyBulletController p = Instantiate<EnemyBulletController>(enemyBulletPrefab);
-        p.transform.position = this.transform.position + new Vector3( 1f,1f,1f);
+        p.transform.position = this.transform.position + new Vector3(1f,1f,1f);
         p.velocity = (_player.transform.position - this.transform.position).normalized * 10.0f;
     }
 

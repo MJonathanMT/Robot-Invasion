@@ -4107,6 +4107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8342123450004452195}
     m_Modifications:
+    - target: {fileID: 1112214358631695562, guid: c0c1911d9599b40ed83e2c4e80105e1e,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Health Bar Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 1112214358631695563, guid: c0c1911d9599b40ed83e2c4e80105e1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4211,11 +4216,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1112214358631695562, guid: c0c1911d9599b40ed83e2c4e80105e1e,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy Health Bar Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c1911d9599b40ed83e2c4e80105e1e, type: 3}
