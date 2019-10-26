@@ -21,7 +21,8 @@ public class TeleportationScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-            player.transform.position = portal2.transform.position + new Vector3(3.0f, 0.0f, 0.0f);
+            player.transform.position = portal2.transform.position + new Vector3(6.0f, 0.0f, 0.0f);
+            player.transform.Rotate(new Vector3(0.0f, 180.0f, 0.0f));
         }
     }
 }
