@@ -14,6 +14,6 @@ public class CharacterRotation : MonoBehaviour
     }
 
     public void rotateObject() {
-        transform.Rotate (new Vector3(0, Time.deltaTime * speed, 0));
+        transform.Rotate (new Vector3(0, 0, Time.deltaTime * speed));
     }
 }
