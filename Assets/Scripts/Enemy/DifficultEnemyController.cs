@@ -8,7 +8,7 @@ public class DifficultEnemyController : MonoBehaviour
     private Transform _player;
     public GameObject destroyExplosionPrefab;
     // Audio Source 
-    private AudioSource explosionAudioSrc;
+    public AudioSource explosionAudioSource;
     public AudioSource shootingAudioSource;
 
     public DifficultEnemyBulletController enemyBulletPrefab;
@@ -22,7 +22,6 @@ public class DifficultEnemyController : MonoBehaviour
     {
         _nav = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
-        explosionAudioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,11 +34,12 @@ public class DifficultEnemyController : MonoBehaviour
             timer = 0.0f;
             nextTimeToFire = Time.time + 3f / fireRate;
             shootBullet();
+            // Create shooting sound
             shootingAudioSource.Play();
         }
     }
 
-    // shooting bullets
+    // Shooting bullets
     public void shootBullet()
     {
         DifficultEnemyBulletController p = Instantiate<DifficultEnemyBulletController>(enemyBulletPrefab);
@@ -51,7 +51,7 @@ public class DifficultEnemyController : MonoBehaviour
     public void DestroyMe()
     {
         // Create explosion sound
-        explosionAudioSrc.Play();
+        explosionAudioSource.Play();
 
         // Create explosion effect
         GameObject explosion = Instantiate(this.destroyExplosionPrefab);

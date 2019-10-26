@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     private Transform _player;
     public GameObject destroyExplosionPrefab;
     // Audio Source 
-    private AudioSource explosionAudioSrc;
+    public AudioSource explosionAudioSource;
     public AudioSource shootingAudioSource;
 
     public EnemyBulletController enemyBulletPrefab;
@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
     {
         _nav = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
-        explosionAudioSrc = GetComponent<AudioSource>();
     }
      
     void Update ()
@@ -34,11 +33,12 @@ public class EnemyController : MonoBehaviour
             timer = 0.0f;
             nextTimeToFire = Time.time + 2f / fireRate;
             shootBullet();
+            // Create shooting sound
             shootingAudioSource.Play();
         }
     }
 
-    // shooting bullets
+    // Shooting bullets
     public void shootBullet()
     {
         EnemyBulletController p = Instantiate<EnemyBulletController>(enemyBulletPrefab);
@@ -48,9 +48,9 @@ public class EnemyController : MonoBehaviour
 
     // // This should be hooked up to the health manager on this object
     public void DestroyMe()
-    {   
+    {
         // Create explosion sound
-        explosionAudioSrc.Play();
+        explosionAudioSource.Play();
 
         // Create explosion effect
         GameObject explosion = Instantiate(this.destroyExplosionPrefab);

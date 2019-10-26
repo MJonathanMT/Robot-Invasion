@@ -6,6 +6,7 @@ public class DifficultEnemySpawner : MonoBehaviour
 {
     public GameObject enemy;                // The enemy prefab to be spawned.
     public float spawnTime = 10f;            // How long between each spawn.
+    public float decreaseSpawnTime = 60f;
 
     void Start()
     {
@@ -13,6 +14,16 @@ public class DifficultEnemySpawner : MonoBehaviour
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
+    void Update()
+    {
+        if (Time.time > decreaseSpawnTime)
+        {
+            spawnTime -= 1f;
+            InvokeRepeating("Spawn", spawnTime, spawnTime);
+            decreaseSpawnTime += 30f;
+        }
+
+    }
 
     void Spawn()
     {
