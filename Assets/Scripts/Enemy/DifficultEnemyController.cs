@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
- 
-public class EnemyController : MonoBehaviour
+
+public class DifficultEnemyController : MonoBehaviour
 {
     private NavMeshAgent _nav;
     // public GameObject destroyExplosionPrefab;
@@ -11,28 +11,29 @@ public class EnemyController : MonoBehaviour
     private AudioSource explosionAudioSrc;
     public AudioSource shootingAudioSource;
 
-    public EnemyBulletController enemyBulletPrefab;
-    private float nextTimeToFire = 1f;
+    public DifficultEnemyBulletController enemyBulletPrefab;
+    private float nextTimeToFire;
     private float timer;
-    private float fireRate = 5f;
+    private float fireRate = 1f;
     public int attackRange;
- 
-    void Start ()
+
+    void Start()
 
     {
         _nav = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         explosionAudioSrc = GetComponent<AudioSource>();
     }
-     
-    void Update ()
+
+    void Update()
     {
         _nav.SetDestination(_player.position);
 
         // shooting player
-        if ((Vector3.Distance(_player.transform.position, this.transform.position) < attackRange) && (Time.time >= nextTimeToFire)) {
+        if ((Vector3.Distance(_player.transform.position, this.transform.position) < attackRange) && (Time.time >= nextTimeToFire))
+        {
             timer = 0.0f;
-            nextTimeToFire = Time.time + 2f / fireRate;
+            nextTimeToFire = Time.time + 3f / fireRate;
             shootBullet();
             shootingAudioSource.Play();
         }
@@ -41,14 +42,14 @@ public class EnemyController : MonoBehaviour
     // shooting bullets
     public void shootBullet()
     {
-        EnemyBulletController p = Instantiate<EnemyBulletController>(enemyBulletPrefab);
-        p.transform.position = this.transform.position + new Vector3(1f,1f,1f);
-        p.velocity = (_player.transform.position - this.transform.position).normalized * 15.0f;
+        DifficultEnemyBulletController p = Instantiate<DifficultEnemyBulletController>(enemyBulletPrefab);
+        p.transform.position = this.transform.position + new Vector3(1f, 1f, 1f);
+        p.velocity = (_player.transform.position - this.transform.position).normalized * 10.0f;
     }
 
     // // This should be hooked up to the health manager on this object
     public void DestroyMe()
-    {   
+    {
         // Create explosion sound
         explosionAudioSrc.Play();
 
