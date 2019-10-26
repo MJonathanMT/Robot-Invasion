@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - _Shininess: 0.03
     m_Colors:
-    - _Color: {r: 0.83137256, g: 0.40620506, b: 0.14117646, a: 1}
+    - _Color: {r: 1, g: 0.5843815, b: 0.37254906, a: 1}
     - _PointLightColor: {r: 0.9339623, g: 0.6724319, b: 0.12775902, a: 1}
     - _PointLightPosition: {r: 20, g: 0, b: 40, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
