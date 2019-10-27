@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadEndGameSCript : MonoBehaviour
 {
     public void openEndGameScene() {
+        
         Cursor.visible = true;
         SceneManager.LoadScene("EndGame");
     }

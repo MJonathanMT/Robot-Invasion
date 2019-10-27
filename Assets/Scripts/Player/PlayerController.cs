@@ -143,9 +143,9 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision c) {
 
-            Debug.Log("diedie");
+           
         if (c.collider.tag == "Enemy") {
-            Debug.Log("diedie");
+            
             PlayerHealth playerHealth = this.gameObject.GetComponent<PlayerHealth>();
             playerHealth.ModifyHealth(10);
         }

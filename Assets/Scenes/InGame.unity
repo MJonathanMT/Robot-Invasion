@@ -1618,7 +1618,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 884e5afedfb25b04895157a0121d1696, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 21ddce4216be2a247b75c9ba81f898fa, type: 2}
+      objectReference: {fileID: 2100000, guid: e1be9f1836fc17d48b046464fb1e5200, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 884e5afedfb25b04895157a0121d1696, type: 3}
 --- !u!1 &325020617
@@ -3107,7 +3107,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584446135}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
@@ -3750,7 +3750,7 @@ GameObject:
   - component: {fileID: 676303175}
   - component: {fileID: 676303174}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: ScoreManagerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3768,7 +3768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851a680a4306c473b85c3dfacd8921b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
 --- !u!4 &676303175
 Transform:
   m_ObjectHideFlags: 0
@@ -4503,7 +4502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 8345167438580375195, guid: 0ee0585b30bd347d2a35a777c503ea21, type: 3}
-  spawnTime: 10
+  spawnTime: 2
 --- !u!1 &872576117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: eb29b43dd4e9757428a9aad1e5be0c4e,
@@ -5369,8 +5368,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 27499085}
-  scoreManager: {fileID: 676303174}
-  player: {fileID: 0}
 --- !u!4 &1061800400
 Transform:
   m_ObjectHideFlags: 0
@@ -5711,7 +5708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1141605506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14957,7 +14954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1893993406
 Light:
   m_ObjectHideFlags: 0
@@ -15025,13 +15022,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893993405}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1141605507}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!1 &1895175654
 GameObject:
   m_ObjectHideFlags: 0
@@ -21104,7 +21101,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1841610760447728471}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1

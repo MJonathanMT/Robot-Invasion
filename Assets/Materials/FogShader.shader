@@ -61,10 +61,11 @@
  
             fixed4 frag(v2f i) : SV_Target
             {
+                
                 float2 uv = i.uv + fixed2(_ScrollDirX, _ScrollDirY) * _Speed * _Time.x;
                 fixed4 col = tex2D(_MainTex, uv) * _Color * i.vertCol;
                 col.a *= tex2D(_Mask, i.uv2).r;
-                col.a *= 1 - ((i.pos.z / i.pos.w) * _Distance);
+                col.a *= 1 - ((i.pos.z / i.pos.w) * _Distance); //fog strength vs distance, adds the fading effect
                 return col;
             }
             ENDCG

@@ -13,7 +13,7 @@ public class FogScript : MonoBehaviour
     void Start() {
         newColor = this.transform.GetComponent<Renderer>().material.color;
         InvokeRepeating ("showFog", fogDelay, fogFrequency);
-        InvokeRepeating ("disableFog", fogDelay+4, fogFrequency+4);
+        InvokeRepeating ("disableFog", fogDelay+30, fogFrequency+30);
     }
 
     void Update()

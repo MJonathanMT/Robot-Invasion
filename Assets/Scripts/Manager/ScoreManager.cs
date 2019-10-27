@@ -3,13 +3,13 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
     
-    public int score = 0;
+    public static int score = 0;
     
-	public void ResetScore()
+	public static void ResetScore()
     {
-        this.score = 0;
+        score = 0;
     }
-    public void killScore(){
-        this.score += 100;
+    public static void killScore(){
+        score += 100;
     }
 }
