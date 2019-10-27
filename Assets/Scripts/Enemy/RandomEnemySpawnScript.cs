@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class RandomEnemySpawnScript : MonoBehaviour
 {
-    public GameObject enemy;                // The enemy prefab to be spawned.
-    public float spawnTime = 3f;            // How long between each spawn.
+    public GameObject enemy;            // The enemy prefab to be spawned.
+    public float spawnTime = 5f;            // How long between each spawn.
+    public float decreaseSpawnTime = 30f;
 
     void Start ()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-        InvokeRepeating ("Spawn", spawnTime, spawnTime);
+        InvokeRepeating("Spawn", spawnTime, spawnTime);
+
+    }
+
+    void Update()
+    {
+        if (Time.time > decreaseSpawnTime)
+        {
+            spawnTime -= 1f;
+            InvokeRepeating("Spawn", spawnTime, spawnTime);
+            decreaseSpawnTime += 30f;
+        }
+
     }
 
 
