@@ -27,11 +27,14 @@ public class PlayerController : MonoBehaviour
 
     private float reloadTime = 1.5f;
     private float timer = 0;
-    bool timerReached = false;
+    private bool timerReached = false;
     private float nextTimeToFire = 0f;
     private float fireRate = 15f;
-		private Animator anim;
-        private Vector3 pos;
+    private Animator anim;
+    private Vector3 pos;
+
+    private ParticleSystem PowerUpParticleSystem;
+    private float powerPickUpRange = 5;
 
     private float tempAmmo;
     public GameObject destroyExplosionPrefab;
@@ -124,6 +127,19 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+        
+        PowerUpParticleSystem = GameObject.Find("PowerUpParticleSystem").GetComponent<ParticleSystem>();
+        
+        if(Input.GetKey(KeyCode.E) && (Vector3.Distance(new Vector3(20,0,40), this.transform.position) < powerPickUpRange)){
+            if(PowerUpParticleSystem.enableEmission){
+                PowerUpParticleSystem.enableEmission = false;
+                GameObject[] powerUps = GameObject.FindGameObjectsWithTag("PowerUp");
+                foreach(GameObject powerUp in powerUps)
+                    GameObject.Destroy(powerUp);
+                // Do power up
+                applyRandomPowerUp();
+            }
+        }
     }
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
@@ -142,12 +158,80 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision c) {
-
-            Debug.Log("diedie");
         if (c.collider.tag == "Enemy") {
-            Debug.Log("diedie");
             PlayerHealth playerHealth = this.gameObject.GetComponent<PlayerHealth>();
             playerHealth.ModifyHealth(10);
         }
+    }
+    void applyRandomPowerUp(){
+        float randomNum = Random.value;
+        Vector3 position;
+        if (randomNum <= 0.1){
+            // Damage all enemies power up
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject enemy in enemies){
+                HealthManager healthManager = enemy.GetComponent<HealthManager>();            
+                healthManager.ApplyDamage(200);
+            }            
+        }
+        else if (randomNum <= 0.4 && randomNum > 0.1){
+            // Infinite Ammo Power Up            
+            PlayerReload playerReload = GetComponent<PlayerReload>();
+            playerReload.maxAmmo = 300;
+            playerReload.ReloadAction(300);
+            fireRate = 1000000f;
+            ParticleSystem infAmmoParticleSystem = this.transform.Find("InfAmmo").GetComponent<ParticleSystem>();
+            infAmmoParticleSystem.enableEmission = true;
+            Invoke("normalReload", 5);
+        }
+        else if (randomNum <= 0.7 && randomNum > 0.4){
+            // Health Buff Power Up        
+            PlayerHealth playerHealth = this.gameObject.GetComponent<PlayerHealth>();
+            playerHealth.maxHealth = 10000;
+
+            HealthManager healthManager = GetComponentInParent<HealthManager>(); 
+            healthManager.currentHealth = 10000;
+            playerHealth.OnEnable();
+            playerHealth.ModifyHealth(0);
+            GameObject forceField = this.transform.Find("ForceField").gameObject;  
+            forceField.SetActive(true);
+            Invoke("normalHealth", 5);
+        }
+        else {
+            // Score Multiplier Power Up
+            ScoreManager scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+            scoreManager.killValue *= 2;
+            
+            InGameController inGameController = GameObject.Find("InGameController").GetComponent<InGameController>();
+            inGameController.multiplier = true;
+            Invoke("normalScore", 20);
+        }
+    }
+    void normalReload(){        
+        PlayerReload playerReload = this.gameObject.GetComponent<PlayerReload>();
+        fireRate = 15f;
+        playerReload.maxAmmo = 4;
+        playerReload.ReloadAction(4);
+        ParticleSystem infAmmoParticleSystem = this.transform.Find("InfAmmo").GetComponent<ParticleSystem>();
+        infAmmoParticleSystem.enableEmission = false;
+    }
+    void normalHealth(){
+        PlayerHealth playerHealth = this.gameObject.GetComponent<PlayerHealth>();
+        playerHealth.maxHealth = 100;
+        HealthManager healthManager = GetComponentInParent<HealthManager>(); 
+        healthManager.currentHealth = 100;
+        GameObject forceField = this.transform.Find("ForceField").gameObject;  
+        forceField.SetActive(false);
+        playerHealth.OnEnable();
+        playerHealth.ModifyHealth(0);
+    }
+    
+    void normalScore(){
+        
+        ScoreManager scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        scoreManager.killValue = 100;
+        
+        InGameController inGameController = GameObject.Find("InGameController").GetComponent<InGameController>();
+        inGameController.multiplier = false;
     }
 }

@@ -9,7 +9,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     private float updateSpeedSeconds = 0.5f;
 
-    private void Awake(){
+    void Awake(){
         GetComponentInParent<PlayerHealth>().OnHealthPercentChanged += HandleHealthChanged;
     }
 
@@ -27,7 +27,7 @@ public class PlayerHealthBar : MonoBehaviour
             yield return null;
         }
         foregroundImage.fillAmount = percent;        
-        HealthManager healthManager = GetComponentInParent<HealthManager>();            
+        HealthManager healthManager = GetComponentInParent<HealthManager>(); 
         healthManager.ApplyDamage(bulletDamage);
     }
 
