@@ -9,4 +9,9 @@ public class LoadEndGameSCript : MonoBehaviour
         Cursor.visible = true;
         SceneManager.LoadScene("EndGame");
     }
+
+    public void openEndGameNightModeScene() {
+        Cursor.visible = true;
+        SceneManager.LoadScene("EndGameNightMode");
+    }
 }

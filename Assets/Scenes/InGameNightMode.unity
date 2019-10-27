@@ -2248,7 +2248,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 482698157}
-        m_MethodName: openEndGameScene
+        m_MethodName: openEndGameNightModeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

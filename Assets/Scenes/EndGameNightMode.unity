@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 233424795}
   - component: {fileID: 233424794}
   m_Layer: 0
-  m_Name: EndGameController
+  m_Name: EndGameNightModeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 233424793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3e6567b3431647a487dbd9a39bb74e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 15120d43367244ec3b1e885a98c3fdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &233424795
