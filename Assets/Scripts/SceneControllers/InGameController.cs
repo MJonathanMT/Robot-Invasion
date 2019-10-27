@@ -9,8 +9,8 @@ public class InGameController : MonoBehaviour {
     public bool multiplier = false;
 
     // public SwarmManager swarmManager;
-    public ScoreManager scoreManager;
-    public PlayerController player;
+   // public ScoreManager scoreManager;
+    //public PlayerController player;
 
     // A very simple way to keep data persistent between scenes is via
     // a static attribute as below. There are other ways whereby statics
@@ -20,7 +20,8 @@ public class InGameController : MonoBehaviour {
     
 	void Start ()
     {
-        this.scoreManager.score = 0;
+        
+        ScoreManager.score = 0;
 
         // // Create swarm with parameters adjusted for difficulty
         // swarmManager.stepTime = 2.1f - (GlobalOptions.difficulty * 2.0f);
@@ -31,11 +32,11 @@ public class InGameController : MonoBehaviour {
     void Update ()
     {
         // Update score text field
-        if(multiplier){
-            this.scoreText.text = "Score: " + this.scoreManager.score + "\nMultipler Active: 2x";;
+        if (multiplier) {
+            this.scoreText.text = "Score: " + ScoreManager.score + "\nMultipler Active: 2x";
         }
-        else{
-            this.scoreText.text = "Score: " + this.scoreManager.score;
+        else {
+            this.scoreText.text = "Score: " + ScoreManager.score;
         }
     }
 

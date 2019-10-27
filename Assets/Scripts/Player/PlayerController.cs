@@ -199,8 +199,7 @@ public class PlayerController : MonoBehaviour
         }
         else {
             // Score Multiplier Power Up
-            ScoreManager scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
-            scoreManager.killValue *= 2;
+            ScoreManager.killValue *= 2;
             
             InGameController inGameController = GameObject.Find("InGameController").GetComponent<InGameController>();
             inGameController.multiplier = true;
@@ -228,8 +227,7 @@ public class PlayerController : MonoBehaviour
     
     void normalScore(){
         
-        ScoreManager scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
-        scoreManager.killValue = 100;
+        ScoreManager.killValue = 100;
         
         InGameController inGameController = GameObject.Find("InGameController").GetComponent<InGameController>();
         inGameController.multiplier = false;

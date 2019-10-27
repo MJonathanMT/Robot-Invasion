@@ -32,8 +32,8 @@ public class HealthManager : MonoBehaviour {
         if (currentHealth <= 0)
         {
             this.zeroHealthEvent.Invoke();
-            ScoreManager scoreManager = GameObject.Find ("Managers").transform.Find("ScoreManager").GetComponent<ScoreManager> ();
-            scoreManager.killScore();
+           // ScoreManager scoreManager = GameObject.Find ("Managers").transform.Find("ScoreManager").GetComponent<ScoreManager> ();
+            ScoreManager.killScore();
         }
     }
 
